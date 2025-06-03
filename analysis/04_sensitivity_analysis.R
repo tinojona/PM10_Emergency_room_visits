@@ -153,7 +153,7 @@ pred2 <- crosspred(cb_pm10_2, mod2, cen = 0, by = 1)
 
 
 # save model
-png("plots/X_SENS_model2_all_TempLag5days.png", width = 1500, height = 1200, res = 300)
+png("plots/X_SENS_model2_all_TempLag5days.png", width = 1800, height = 1500, res = 300)
 par(mfrow = c(1,1),
     mar = c(4,4,.5,1),
     mgp = c(2.5, .8, 0)
