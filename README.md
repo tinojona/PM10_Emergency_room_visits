@@ -10,11 +10,11 @@ This repository presents the analysis on the association between emergency room 
 
 ### The analysis folder
 
-The `analysis` folder contains the different analysis conducted to meet the research objectives. SAY MORE SPECIFIC THINGS!
+The `analysis` folder contains the different analysis conducted to meet the research objectives, starting off with descriptive statistics (01) and then the effect of PM10 (02) and the modification of this effect from heat (03). Additionally we conducted sensitivity analysis (04) and created a map of Basel (05), where our data sources are indicated. 
 
 ### The data folder
 
-The `data`folder contains the raw and processed data and the routine from one thate to the other. 
+The `data`folder contains the raw and processed environmental and hospitalization data and the processing routine. 
 
 
 ### The plots folder
