@@ -40,6 +40,9 @@ subpop <- c("all", "all_male", "all_female", "all_below64y", "all_above64y",
 # create the PM10 cross-basis
 cb_pm10_2 <- crossbasis(data$pm10_MA_2, lag = 0, argvar = list(fun = "lin"))
 
+# create the PM10 cross-basis
+cb_pm10_5 <- crossbasis(data$pm10_MA_5, lag = 0, argvar = list(fun = "lin"))
+
 # create the temperature crossbasis
 cb_temp <- crossbasis(data$tmean,
                       lag=21,
@@ -78,13 +81,13 @@ for(i in 1:ncol(model2_subgroups_df)){
   subpop_index = colnames(model2_subgroups_df[i])
 
   # formula
-  formula_subpop = as.formula(paste0(subpop_index, " ~ cb_pm10_2 + cb_temp + dow + ns(date, df = ", 19*8, ")"))
+  formula_subpop = as.formula(paste0(subpop_index, " ~ cb_pm10_5 + cb_temp + dow + ns(date, df = ", 19*8, ")"))
 
   # fir model
   mod_subpop = glm(formula_subpop, data = data, family = quasipoisson)
 
   # predict
-  pred_subpop <- crosspred(cb_pm10_2, mod_subpop, cen = 0, by = 1)
+  pred_subpop <- crosspred(cb_pm10_5, mod_subpop, cen = 0, by = 1)
 
   # save risk and confidence interval
   model2_subgroups_df[1,i] = pred_subpop$matRRfit[50]
@@ -108,7 +111,7 @@ model2_subgroups_df_long <- model2_subgroups_df |>
                                            "renal", "respiratory", "cerebrovascular", "cardiovascular")))
 
 # save plot
-png("plots/X_SENS_model2_subpop_MA5.png", width = 1200, height = 800, res = 100)
+png("plots/X_SENS_model2_subpop_MA5.png", width = 1900, height = 1200, res = 300)
 
 ggplot(model2_subgroups_df_long, aes(x = Model, y = Estimate)) +
   geom_point(size = 3, color = "brown1") +
@@ -153,7 +156,7 @@ pred2 <- crosspred(cb_pm10_2, mod2, cen = 0, by = 1)
 
 
 # save model
-png("plots/X_SENS_model2_all_TempLag5days.png", width = 1800, height = 1500, res = 300)
+png("plots/X_SENS_model2_all_TempLag5days.png", width = 1300, height = 900, res = 300)
 par(mfrow = c(1,1),
     mar = c(4,4,.5,1),
     mgp = c(2.5, .8, 0)
@@ -168,14 +171,14 @@ plot(pred2,
      lwd = 2,
      ylab = "relative risk",
      main = "",
-     cex.axis = 2,
-     cex.lab = 2
+     # cex.axis = 2,
+     # cex.lab = 2
 )
 abline(v = 50, lty = "dashed")
 
 
 value = round((  pred2$matRRfit[50] -1 ) * 100, digits = 1)
-text(49, 1.4 , labels = paste0(value  ,"%"), pos = 4, cex = 2)
+text(49, 1.4 , labels = paste0(value  ,"%"), pos = 4, cex = 1)
 
 dev.off()
 
@@ -202,7 +205,7 @@ pred4_heat <- crosspred(cb_pm10_2, mod4_heat, cen = 0, by = 1)
 pred4_heat_no <- crosspred(cb_pm10_2, mod4_heat_no, cen = 0, by = 1)
 
 
-png("plots/X_SENS_model3_all_95p.png", width = 1550, height = 1200, res = 300)
+png("plots/X_SENS_model3_all_95p.png", width = 1600, height = 1200, res = 300)
 par(mfrow = c(1,1),
     mar = c(3,3,.5,.5),
     mgp = c(1.8, .5, 0)
@@ -225,8 +228,8 @@ lines(pred4_heat_no,           ## cumulative exposure
       ci.arg = list(col = alpha(colour = "grey2", .15)),
       lwd = 2)
 abline(v = 50, lty = "dashed")
-legend("top", ncol = 1, legend = c("Model 4: heat days", "Model 4: non-heat days"), col = c("brown1", "grey2"),
-       bty = "n", lwd=c(2,2), cex = 0.7)
+legend("top", ncol = 1, legend = c("Model 3: heat days", "Model 3: non-heat days"), col = c("brown1", "grey2"),
+       bty = "n", lwd=c(2,2))
 
 value = round((  pred4_heat$matRRfit[50] -1 ) * 100, digits = 1)
 text(49, 1.55 , labels = paste0(value  ,"%"), pos = 4, cex = 1)
