@@ -6,7 +6,7 @@ This repository presents the analysis on the association between emergency room 
 <br> 
 
 <p align="center">
-  <img src="plots/model1_model2_all.png" alt="Figure 1" width="700"/>
+  <img src="plots/model1_model2_all.png" alt="Figure 1" width="600"/>
 </p>
 
 *Cummulative relative risk for all-cause emergency room visits from Model 1 (erv ~ PM10) and Model 2 (erv ~ PM10 + temperature).*
