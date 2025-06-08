@@ -1,10 +1,18 @@
 # Air pollution and emergency room visits
 
-author: Tino Schneidewind
+
+This repository presents the analysis on the association between emergency room visits and exposure to PM10 (particulate matter with an aerodynamic diameter of 10 micrometers) in Basel, Switzerland. The final report (FINAL_REPORT.Rmd .html) summarizes the findings of the analysis, sets them into perspective with the latest literature and discusses them. 
+
+<br> 
+
+<p align="center">
+  <img src="plots/model1_model2_all.png" alt="Figure 1" width="700"/>
+</p>
+
+*Cummulative relative risk for all-cause emergency room visits from Model 1 (erv ~ PM10) and Model 2 (erv ~ PM10 + temperature).*
 
 
-This repository presents the analysis on the association between emergency room visits and exposure to PM10 in Basel, Switzerland. The final report (FINAL_REPORT.Rmd .html) summarizes the findings of the analysis, sets them into perspective with the latest literature and discusses them. 
-
+<br>
 
 ## Folders
 
