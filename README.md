@@ -1,7 +1,7 @@
 # PM10 and emergency room visits
 
 
-This repository presents the analysis on the association between emergency room visits and exposure to PM10 (particulate matter with an aerodynamic diameter of less than 10 micrometers) in Basel, Switzerland. The final report (FINAL_REPORT.Rmd .html) summarizes the findings of the analysis, sets them into perspective with the latest literature and discusses them. 
+This repository presents the analysis on the association between emergency room visits and exposure to PM10 (particulate matter with an aerodynamic diameter of less than 10 micrometers) in Basel, Switzerland. The final report (FINAL_REPORT.pdf) summarizes the findings of the analysis, sets them into perspective with the latest literature and discusses them. 
 
 <br> 
 
