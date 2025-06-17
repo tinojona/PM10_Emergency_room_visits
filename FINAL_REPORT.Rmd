@@ -1,5 +1,5 @@
 ---
-title: "Final Report"
+title: "Air pollution and emergency room visits"
 author: "Tino Schneidewind"
 date: "2025-06-03"
 output: 
@@ -13,8 +13,6 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 
 ```
-
-## Air pollution and emergency room visits
 
 ### 1. Introduction
 
@@ -83,7 +81,7 @@ We hypothesize that (i) increased PM10 exposure increases emergency room visits 
 
 We collected daily emergency room visits from 1995 to 2013 from Basel which were provided by the University Hospital of Basel (Figure 1). The ERV data was aggregated by sex, age group (<64 years, ≥64 years) and cause (accident; renal; respiratory; cerebrovascular; cardiovascular).
 
-```{r fig1, echo=FALSE, out.width='70%', fig.align='center'}
+```{r fig1, echo=FALSE, out.width='80%', fig.align='center'}
 knitr::include_graphics("plots/X_Basel.png")
 
 ```
