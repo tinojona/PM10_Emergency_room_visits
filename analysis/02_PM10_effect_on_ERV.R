@@ -79,7 +79,7 @@ pred2 <- crosspred(cb_pm10_2, mod2, cen = 0, by = 1)
 
 
 # save plot
-png("plots/model1_model2_all.png", width = 2000, height = 1200, res = 300)
+png("plots/model1_model2_all.png", width = 2500, height = 1600, res = 300)
 par(mfrow = c(1,2),
     mar = c(3,3,2,.5),
     mgp = c(1.8, .5, 0)
@@ -92,15 +92,15 @@ plot(pred1,
      xlab = expression("PM10 ["*mu*"g/"*m^{3}*"]"),
      lwd = 2,
      ylab = "relative risk",
-     main = "Model 1"
+     # main = "Model 1"
 )
 abline(v = 50, lty = "dashed")
 
 # legend("top", ncol = 1, legend = c("Model 1: PM10"), col = c("grey2"),
 #        bty = "n", lwd=c(2,2), cex = 1)
 
-value = round((  pred1$matRRfit[50] -1 ) * 100, digits = 1)
-text(49, 1.3 , labels = paste0(value  ,"%"), pos = 4, cex = 1)
+value = round(  pred1$matRRfit[50], digits = 3)
+text(49, 1.5 , labels = paste0(value  ,"%"), pos = 4, cex = 1)
 
 
 
@@ -112,15 +112,15 @@ plot(pred2,
      xlab = expression("PM10 ["*mu*"g/"*m^{3}*"]"),
      lwd = 2,
      ylab = "relative risk",
-     main = "Model 2"
+     # main = "Model 2"
 )
 abline(v = 50, lty = "dashed")
 
 # legend("top", ncol = 1, legend = c("Model 2: PM10 + Temperature"), col = c("brown1"),
 #        bty = "n", lwd=c(2,2), cex = 1)
 
-value = round((  pred2$matRRfit[50] -1 ) * 100, digits = 1)
-text(49, 1.3 , labels = paste0(value  ,"%"), pos = 4, cex = 1)
+value = round(  pred2$matRRfit[50], digits = 3)
+text(49, 1.5 , labels = paste0(value  ,"%"), pos = 4, cex = 1)
 
 dev.off()
 
